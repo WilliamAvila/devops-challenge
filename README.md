@@ -51,3 +51,11 @@ Please ensure your final submission is a working version that includes:
 
 ### Support
 Throughout the challenge, you may encounter errors or have questions. You are encouraged to email bzeiger@sweatworks.net for any assistance, be it clarification on requirements or troubleshooting unexpected issues.
+
+
+### Local Development
+- Build Docker Images 
+  - `docker build . --target admin --tag admin:latest` 
+  - `docker build . --target api --tag api:latest`
+
+- Run the app with `docker compose up`
