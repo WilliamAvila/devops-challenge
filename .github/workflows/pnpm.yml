@@ -30,6 +30,14 @@ jobs:
       run: npm run build
       working-directory: packages/admin
 
+    - name: Deploy Frontend
+      uses: reggionick/s3-deploy@v4
+      with:
+        folder: packages/admin/public
+        bucket: ${{ secrets.S3_BUCKET }}
+        bucket-region: us-east-1
+        files-to-include: '{.*/**,**}'
+        
     - name: Run Migrations
       run: pnpm run migrate
       working-directory: packages/database
@@ -53,10 +61,3 @@ jobs:
         region: us-east-1
         deployment_package: deploy.zip
 
-    - name: Deploy Frontend
-      uses: reggionick/s3-deploy@v4
-      with:
-        folder: packages/admin/public
-        bucket: ${{ secrets.S3_BUCKET }}
-        bucket-region: us-east-1
-        files-to-include: '{.*/**,**}'
