@@ -37,7 +37,12 @@ jobs:
         bucket: ${{ secrets.S3_BUCKET }}
         bucket-region: us-east-1
         files-to-include: '{.*/**,**}'
-        
+
+    - name: create env file
+      run: |
+        touch .env
+        echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
+
     - name: Run Migrations
       run: pnpm run migrate
       working-directory: packages/database
@@ -55,8 +60,8 @@ jobs:
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: MyApplicationName
-        environment_name: MyApplication-Environment
+        application_name: my-express-api
+        environment_name: MyApplication-expressApiEnvironment
         version_label: 12345
         region: us-east-1
         deployment_package: deploy.zip
