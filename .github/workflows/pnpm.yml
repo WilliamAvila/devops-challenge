@@ -50,11 +50,8 @@ jobs:
       working-directory: packages/api
 
     - name: Generate deployment package
-      run: |
-        ls
-        zip -r deploy.zip .
-        ls
-      working-directory: packages/api
+      run: zip -r deploy.zip . 
+      working-directory: packages/api/dist
 
     - name: Deploy API
       uses: einaregilsson/beanstalk-deploy@v22
@@ -66,5 +63,5 @@ jobs:
         use_existing_version_if_available: true
         version_label: 12345
         region: us-east-1
-        deployment_package:  packages/api/deploy.zip
+        deployment_package:  packages/api/dist/deploy.zip
 

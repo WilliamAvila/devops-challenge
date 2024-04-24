@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/index.ts",
-    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --target=node12 --format=cjs --sourcemap",
-    "start": "node dist/index.js"
+    "build": "esbuild src/index.ts --bundle --outfile=app.js --platform=node --target=node12 --format=cjs --sourcemap",
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
