@@ -61,7 +61,7 @@ jobs:
         application_name: my-express-api
         environment_name: expressApiEnvironment
         use_existing_version_if_available: true
-        version_label: 1
+        version_label: 3
         region: us-east-1
         deployment_package:  packages/api/dist/deploy.zip
 
