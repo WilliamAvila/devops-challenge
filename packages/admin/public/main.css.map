@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/index.css"],
+  "sourcesContent": ["body {\n  margin: 0;\n}\n"],
+  "mappings": "AAAA,YACU,CACV",
+  "names": []
+}

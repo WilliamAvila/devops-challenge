@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host --port 3001"
+    "dev": "vite --host --port 3001",
+    "build": "esbuild --sourcemap --minify --bundle src/main.tsx --outdir=public --platform=browser --target=chrome58"
   },
   "dependencies": {
     "@dc/database": "workspace:*",
