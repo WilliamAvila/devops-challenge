@@ -38,15 +38,13 @@ jobs:
         bucket-region: us-east-1
         files-to-include: '{.*/**,**}'
 
-    - name: create env file
+    - name: Run Migrations
+      working-directory: packages/database
       run: |
         touch .env
         echo DATABASE_URL=${{ secrets.DATABASE_URL }} >> .env
-
-    - name: Run Migrations
-      run: pnpm run migrate
-      working-directory: packages/database
-     
+        pnpm run migrate
+           
     - name: Build API
       run: npm run build
       working-directory: packages/api
