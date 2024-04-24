@@ -26,10 +26,10 @@ jobs:
     - name: Install dependencies
       run: pnpm install
 
-  deploy:
     - name: Build Frontend
       run: npm run build
       working-directory: packages/admin
+
     - name: Deploy Frontend
       uses: reggionick/s3-deploy@v4
       with:
