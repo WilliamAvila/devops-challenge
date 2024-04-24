@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "s3_b_frontend" {
   bucket = var.s3_bucket_frontend
-  tags   = {
+  tags = {
     ENVIRONMENT = var.environment
   }
 }
@@ -32,23 +32,23 @@ resource "aws_s3_bucket_public_access_block" "b_public_access_block" {
 resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
   bucket = aws_s3_bucket.s3_b_frontend.id
   policy = jsonencode(
-  {
-    "Version": "2008-10-17",
-    "Statement": [
-      {
-        "Sid": "PublicReadGetObject",
-        "Effect": "Allow",
-        "Principal": {
-          "AWS": "*"
-        },
-        "Action": "s3:GetObject",
-        "Resource": "arn:aws:s3:::${var.s3_bucket_frontend}/*"
-      }
-    ]
+    {
+      "Version" : "2008-10-17",
+      "Statement" : [
+        {
+          "Sid" : "PublicReadGetObject",
+          "Effect" : "Allow",
+          "Principal" : {
+            "AWS" : "*"
+          },
+          "Action" : "s3:GetObject",
+          "Resource" : "arn:aws:s3:::${var.s3_bucket_frontend}/*"
+        }
+      ]
   })
-  
 
-  depends_on = [ aws_s3_bucket_public_access_block.b_public_access_block ]
+
+  depends_on = [aws_s3_bucket_public_access_block.b_public_access_block]
 }
 resource "aws_s3_bucket_acl" "b_acl" {
   depends_on = [

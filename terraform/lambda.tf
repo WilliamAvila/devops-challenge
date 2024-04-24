@@ -1,6 +1,6 @@
 resource "aws_s3_bucket" "s3_bucket_lambda" {
   bucket = var.s3_bucket_lambda
-  tags   = {
+  tags = {
     ENVIRONMENT = var.environment
   }
 }
@@ -48,7 +48,7 @@ resource "aws_lambda_function" "resize_photo_lambda" {
   runtime          = "nodejs16.x"
   timeout          = 60
   description      = "${var.app_name} Resize Photo  - ${var.environment}"
-  tags             = {
+  tags = {
     ENVIRONMENT = var.environment
   }
   environment {

@@ -13,7 +13,9 @@ variable "s3_bucket_frontend" {
   default = "my-frontend-react-app"
 }
 #EBS
-
+variable "s3_bucket_ebs" {
+  default = "my-ebs-bucket"
+}
 #RDS Instance Settings
 variable "postgres_admin_username" {
   default = "myadmin"
@@ -41,5 +43,5 @@ variable "s3_bucket_lambda" {
   default = "my-resize-photo-bucket"
 }
 variable "database_url" {
-  default = "https://echo-dev.clios.com"
+  default = ""
 }
