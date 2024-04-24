@@ -16,6 +16,12 @@ variable "s3_bucket_frontend" {
 variable "s3_bucket_ebs" {
   default = "my-ebs-bucket"
 }
+variable "public_subnets" {
+    default = ["subnet-0eaf5b2daac7327e5", "subnet-09b23a5af06e6cf7f"]
+}
+variable "vpc_id" {
+  default = "vpc-0fa67758dd3eefd3d"
+}
 #RDS Instance Settings
 variable "postgres_admin_username" {
   default = "myadmin"

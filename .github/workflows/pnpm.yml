@@ -55,6 +55,7 @@ jobs:
 
     - name: Deploy API
       uses: einaregilsson/beanstalk-deploy@v22
+      working-directory: packages/api/dist
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
