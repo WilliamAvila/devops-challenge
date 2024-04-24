@@ -45,7 +45,7 @@ resource "aws_lambda_function" "resize_photo_lambda" {
   source_code_hash = filebase64sha256("${path.module}/lambda-source-code/resizePhoto.zip")
   handler          = "lambda.handler"
   role             = aws_iam_role.resize_photo_lambda_iam.arn
-  runtime          = "nodejs16.x"
+  runtime          = "nodejs18.x"
   timeout          = 60
   description      = "${var.app_name} Resize Photo  - ${var.environment}"
   tags = {

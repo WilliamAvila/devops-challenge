@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/lambda.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild src/lambda.ts  --bundle --outfile=dist/lambda.js  --platform=node --target=node18  --sourcemap",
+    "package": "zip -r -j resizePhoto.zip dist/*"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +14,7 @@
     "@aws-sdk/client-s3": "^3.540.0",
     "@dc/database": "workspace:*",
     "aws-lambda": "^1.0.7",
+    "optional": "^0.1.4",
     "sharp": "^0.33.3"
   },
   "devDependencies": {
